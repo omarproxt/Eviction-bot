@@ -1,0 +1,30 @@
+import requests, pyfiglet,time,sys,webbrowser 
+Ab='\033[1;92m'
+aB='\033[1;91m'
+AB='\033[1;96m'
+aBbs='\033[1;93m'
+AbBs='\033[1;95m'
+A_bSa = '\033[1;31m'
+a_bSa = '\033[1;32m'
+faB_s = '\033[2;32m'
+a_aB_s = '\033[2;39m'
+Ba_bS = '\033[2;36m'
+Ya_Bs = '\033[1;34m'
+S_aBs = '\033[1;33m'
+logo = pyfiglet.figlet_format('omarproxt')
+print(a_bSa+logo)
+import aminofix,requests
+from threading import Thread as t
+clint=aminofix.Client()
+clint.login(email=input("email••>> "),password=input("password••>> "))
+headers=clint.headers
+information=input("Link chat••>> \033[1;0m")
+information2=clint.get_from_code(information)
+comId=information2.path[1:information2.path.index("/")] 
+chatId=information2.objectId 
+subclient=aminofix.SubClient(comId=comId,profile=clint.profile) 
+chat_users=subclient.get_chat_users(chatId=chatId, start=1,size=1000).userId
+for userId in chat_users:
+    subclient.kick(userId=userId,chatId=chatId, allowRejoin=True) 
+clint.logout
+print(g+"Done \033[1;0m .")
