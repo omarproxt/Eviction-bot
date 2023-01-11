@@ -3,6 +3,7 @@ The expulsion bot, expels all group members (Amino)
 
 # commands
 
+- pip install pyfiglet
 - pip install requests
 - pip install timestamp
 - apt update -y
